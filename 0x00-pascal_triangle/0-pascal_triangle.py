@@ -5,6 +5,9 @@ Using iteration to print the Pascals triangle
 
 
 def pascal_triangle(n):
+    """
+    Printing Pascals Triangle with iterations
+    """
     if n <= 0:
         return []
 
