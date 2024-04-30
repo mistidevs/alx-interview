@@ -17,14 +17,13 @@ def canUnlockAll(boxes):
     """
     Check if all the boxes can be unlocked.
     """
-    visited = [0]  # List of visited boxes
-    queue = boxes[0]  # Initialize the queue with keys from the first box
+    visited = [0]
+    queue = boxes[0]
 
     while queue:
-        box = queue.pop(0)  # Get the next box from the queue
+        box = queue.pop(0)
         if box not in visited:
             visited.append(box)
-            queue.extend(boxes[box])  # Add keys from the current box to the queue
+            queue.extend(boxes[box])
 
     return len(visited) == len(boxes)
-
