@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     """
     Check if all the boxes can be unlocked.
     """
-    visited = []
+    visited = [0]
     queue = boxes[0]
 
     while queue:
@@ -21,7 +21,7 @@ def canUnlockAll(boxes):
             continue
 
         visited.append(box)
-        if box < len(boxes):
+        if box < len(boxes) and boxes[box]:
             queue.extend(boxes[box])
 
     return len(visited) == len(boxes)
