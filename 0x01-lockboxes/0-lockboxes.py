@@ -13,6 +13,7 @@ iteration.
 boxes. Return True or False depending on the result of the type check.
 """
 
+
 def canUnlockAll(boxes):
     """
     Check if all the boxes can be unlocked.
