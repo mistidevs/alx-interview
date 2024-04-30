@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     """
     Check if all the boxes can be unlocked.
     """
-    visited = [0]
+    visited = set([0])
     queue = boxes[0]
 
     while queue:
