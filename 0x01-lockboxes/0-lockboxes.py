@@ -22,6 +22,10 @@ def canUnlockAll(boxes):
 
     while queue:
         box = queue.pop(0)
+
+        if not box or box >= len(boxes) or box < 0:
+            continue
+
         if box not in visited:
             visited.append(box)
             queue.extend(boxes[box])
