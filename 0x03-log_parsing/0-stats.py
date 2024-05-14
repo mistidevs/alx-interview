@@ -35,9 +35,10 @@ def stats():
                 file_size += bytes_sent
 
         if counter == 10:
-            print(f"File size: {file_size}")
+            print(f"File size: {file_size}", flush=True)
             for key, value in status_codes.items():
-                print(f"{key}: {value}")
+                if value > 0:
+                    print(f"{key}: {value}", flush=True)
             counter = 0
 
         def signal_handler(sig, frame):
