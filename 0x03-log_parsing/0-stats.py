@@ -13,10 +13,14 @@ def stats():
     Extracting bytes and status code
     Printing every 10 lines
     """
-    re_template_pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - \[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6})\] "GET /projects/260 HTTP/1\.1" (\d{3}) (\d+)$'
+    re_template_pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - ' \
+        r'\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6})\] ' \
+        r'"GET /projects/260 HTTP/1\.1" (\d{3}) (\d+)$'
+
     codes = [200, 301, 400, 401, 403, 404, 405, 500]
     file_size = 0
-    status_codes = {200: 0, 301: 0, 400: 0, 401: 0, 403: 0, 404: 0, 405: 0, 500: 0}
+    status_codes = {200: 0, 301: 0, 400: 0, 401: 0,
+                    403: 0, 404: 0, 405: 0, 500: 0}
     counter = 0
 
     for line in sys.stdin:
@@ -49,4 +53,4 @@ def stats():
 
 
 if __name__ == '__main__':
-  stats()
+    stats()
