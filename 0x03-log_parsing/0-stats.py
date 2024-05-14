@@ -47,7 +47,8 @@ def stats():
             """
             print(f"File size: {file_size}")
             for key, value in status_codes.items():
-                print(f"{key}: {value}")
+                if value > 0:
+                    print(f"{key}: {value}")
             sys.exit(0)
 
         signal.signal(signal.SIGINT, signal_handler)
