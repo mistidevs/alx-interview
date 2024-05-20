@@ -53,6 +53,12 @@ def stats():
 
         signal.signal(signal.SIGINT, signal_handler)
 
+    if counter > 0:
+        print(f"File size: {file_size}", flush=True)
+        for key, value in status_codes.items():
+            if value > 0:
+                print(f"{key}: {value}", flush=True)
+
 
 if __name__ == '__main__':
     stats()
