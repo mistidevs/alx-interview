@@ -6,6 +6,7 @@ import sys
 import re
 import signal
 
+
 def match_second_last_element(input_string, pattern):
     """
     Pattern matching the second last element
@@ -21,6 +22,7 @@ def match_second_last_element(input_string, pattern):
 
     return match
 
+
 def match_last_element(input_string, pattern):
     """
     Pattern matching the last element
@@ -30,9 +32,9 @@ def match_last_element(input_string, pattern):
     if len(elements) < 1:
         return None
     
-    last = elements[-1]
+    last_element = elements[-1]
 
-    match = re.match(pattern, last)
+    match = re.match(pattern, last_element)
 
     return match
 
@@ -57,8 +59,6 @@ def stats():
     counter = 0
     total_count = 0
 
-    if sys.stdin == '':
-        print("File size: 0")
 
     for line in sys.stdin:
         match = re.match(re_template_pattern, line)
@@ -72,11 +72,11 @@ def stats():
                 status_codes[status_code] += 1
                 file_size += bytes_sent
 
-        elif match_second_last_element(line, code_pattern) != None:
+        if match_second_last_element(line, code_pattern) is not None:
             match = match_second_last_element(line, code_pattern)
             status_codes[int(match.group(0))] += 1
 
-        elif match_last_element(line, size_pattern) != None:
+        if match_last_element(line, size_pattern) is not None:
             match = match_last_element(line, size_pattern)
             file_size += int(match.group(0))
 
@@ -104,6 +104,9 @@ def stats():
         for key, value in status_codes.items():
             if value > 0:
                 print(f"{key}: {value}", flush=True)
+
+    if total_count == 0:
+        print("File size: 0")
 
 
 if __name__ == '__main__':
