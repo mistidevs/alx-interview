@@ -57,10 +57,10 @@ def stats():
     counter = 0
     total_count = 0
 
-    for line in sys.stdin:
-        if line == '' and total_count == 0:
-            print("File size: 0")
+    if sys.stdin == '':
+        print("File size: 0")
 
+    for line in sys.stdin:
         match = re.match(re_template_pattern, line)
         counter += 1
         total_count += 1
@@ -74,11 +74,11 @@ def stats():
 
         elif match_second_last_element(line, code_pattern) != None:
             match = match_second_last_element(line, code_pattern)
-            status_codes[match.group(0)] += 1
+            status_codes[int(match.group(0))] += 1
 
         elif match_last_element(line, size_pattern) != None:
             match = match_last_element(line, size_pattern)
-            file_size += match.group(0)
+            file_size += int(match.group(0))
 
         if counter == 10:
             print(f"File size: {file_size}", flush=True)
