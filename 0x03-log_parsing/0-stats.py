@@ -15,7 +15,7 @@ def match_second_last_element(input_string, pattern):
 
     if len(elements) < 2:
         return None
-    
+
     second_last = elements[-2]
 
     match = re.match(pattern, second_last)
@@ -31,7 +31,7 @@ def match_last_element(input_string, pattern):
 
     if len(elements) < 1:
         return None
-    
+
     last_element = elements[-1]
 
     match = re.match(pattern, last_element)
@@ -48,7 +48,7 @@ def stats():
     re_template_pattern = r'^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) - ' \
         r'\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}\.\d{6})\] ' \
         r'"GET /projects/260 HTTP/1\.1" (\d{3}) (\d+)$'
-    
+
     code_pattern = r'^(\d{3})$'
     size_pattern = r'^(\d+)$'
 
@@ -59,22 +59,14 @@ def stats():
     counter = 0
     total_count = 0
 
-
     for line in sys.stdin:
-        match = re.match(re_template_pattern, line)
         counter += 1
         total_count += 1
 
-        if match:
-            status_code = int(match.group(3))
-            bytes_sent = int(match.group(4))
-            if status_code in codes:
-                status_codes[status_code] += 1
-                file_size += bytes_sent
-
         if match_second_last_element(line, code_pattern) is not None:
             match = match_second_last_element(line, code_pattern)
-            status_codes[int(match.group(0))] += 1
+            if int(match.group(0)) in codes:
+                status_codes[int(match.group(0))] += 1
 
         if match_last_element(line, size_pattern) is not None:
             match = match_last_element(line, size_pattern)
