@@ -61,10 +61,12 @@ def find_all_nqueens_solutions(n):
     """
     Finding and printing all nqueen solutions
     """
-    if not isinstance(n, int):
+    try:
+        n = int(n)
+    except ValueError:
         print("N must be a number")
         exit(1)
-    
+
     if n < 4:
         print("N must be at least 4")
         exit(1)
@@ -77,8 +79,8 @@ def find_all_nqueens_solutions(n):
 
 
 if __name__ == '__main__':
-    if not sys.argv[1] or len(sys.argv) > 2:
+    if len(sys.argv) > 2 or len(sys.argv) < 2:
         print("Usage: nqueens N")
         exit(1)
 
-    find_all_nqueens_solutions(int(sys.argv[1]))
+    find_all_nqueens_solutions(sys.argv[1])
