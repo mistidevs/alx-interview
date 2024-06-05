@@ -19,7 +19,7 @@ function requestPromise (url) {
 requestPromise(url)
     .then(data => {
 	const characters = data.characters;
-	charactersPromises = characters.map(character => requestPromise(character));
+	const charactersPromises = characters.map(character => requestPromise(character));
 	return Promises.all(characterPromises);
     })
     .then(characterData => {
