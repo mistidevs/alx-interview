@@ -11,4 +11,4 @@ UTF8 Validation              | [0x04-utf8_validation](/0x04-utf8_validation/)  |
 Nquuens                      | [0x05-nqueens](/0x05-nqueens/) | Using recursion to identify all possible combinations for the placement of n non-attacking queens on an `n x n` chess board. |
 Starwars API                | [0x06-starwars_api](/0x06-starwars_api/) | Using JavaScript Promisesfor parallel and synchronous operations |
 Rotate 2D Matrix            | [0x07-rotate_2d_matrix](/0x07-rotate_2d_matrix/) | Rotating a 2 Dimensional matrix using transposition and row reversal. |
-Making Change               | [0x08-making_change](/0x08-making_change/) | Determining the fewest number of coins needed to meet a given amount total using iteration and sorting. |
+Making Change               | [0x08-making_change](/0x08-making_change/) | Determining the fewest number of coins needed to meet a given amount total using iteration and dynamic programming |
