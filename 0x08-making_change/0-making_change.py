@@ -13,6 +13,9 @@ def makeChange(coins, total):
     if total <= 0 or not isinstance(total, int):
         return 0
 
+    if len(coins) == 0:
+        return 0
+
     num_coins = 0
     i = 0
     coins.sort(reverse=True)
