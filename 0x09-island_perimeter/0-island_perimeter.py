@@ -5,6 +5,9 @@ Calculating the perimeter of a island in a 2D grid
 
 
 def perimeter_check(grid, x, y, isle_x, isle_y):
+    """
+    Validating if cell is valid land
+    """
     perimeter = 0
     # Left
     if y == 0 or grid[x][y - 1] == 0:
