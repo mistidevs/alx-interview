@@ -13,7 +13,8 @@ def perimeter_check(grid, x, y, isle_x, isle_y):
     if y == isle_y - 1 or (y + 1 < len(grid[x]) and grid[x][y + 1] == 0):
         perimeter += 1
     # Bottom
-    if x == isle_x - 1 or (x + 1 < len(grid) and y < len(grid[x + 1]) and grid[x + 1][y] == 0):
+    if x == isle_x - 1 or (x + 1 < len(grid)
+                           and y < len(grid[x + 1]) and grid[x + 1][y] == 0):
         perimeter += 1
     # Top
     if x == 0 or (x > 0 and y < len(grid[x - 1]) and grid[x - 1][y] == 0):
