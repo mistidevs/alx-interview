@@ -5,26 +5,19 @@ Calculating the perimeter of a island in a 2D grid
 
 
 def perimeter_check(grid, x, y, isle_x, isle_y):
-    """
-    Computing the perimeter of unit of land mass
-    """
     perimeter = 0
     # Left
-    if grid[x][y - 1] == 0 or y == 0:
+    if y == 0 or grid[x][y - 1] == 0:
         perimeter += 1
-
     # Right
-    if grid[x][y + 1] == 0 or y == isle_y - 1:
+    if y == isle_y - 1 or (y + 1 < len(grid[x]) and grid[x][y + 1] == 0):
         perimeter += 1
-
     # Bottom
-    if grid[x + 1][y] == 0 or x == isle_x - 1:
+    if x == isle_x - 1 or (x + 1 < len(grid) and y < len(grid[x + 1]) and grid[x + 1][y] == 0):
         perimeter += 1
-
     # Top
-    if grid[x - 1][y] == 0 or x == 0:
+    if x == 0 or (x > 0 and y < len(grid[x - 1]) and grid[x - 1][y] == 0):
         perimeter += 1
-
     return perimeter
 
 
@@ -37,9 +30,9 @@ def island_perimeter(grid):
 
     perimeter = 0
     isle_x = len(grid)
-    isle_y = len(grid[0])
 
     for x in range(0, isle_x):
+        isle_y = len(grid[x])
         for y in range(0, isle_y):
             if grid[x][y] == 1:
                 perimeter += perimeter_check(grid, x, y, isle_x, isle_y)
