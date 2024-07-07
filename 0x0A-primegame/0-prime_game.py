@@ -30,6 +30,8 @@ def isWinner(x, nums):
         return 'x must be a number'
     if not isinstance(nums, list):
         return 'nums must be a list'
+    if x <= 0:
+        return None
     maria_games_won = 0
     ben_games_won = 0
     for i in range(x):
