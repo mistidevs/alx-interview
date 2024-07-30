@@ -10,4 +10,5 @@ if __name__ == "__main__":
               [7, 8, 9]]
 
     rotate_2d_matrix(matrix)
-    print(matrix)
+    for i in range(0, len(matrix)):
+        print(matrix[i])
